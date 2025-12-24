@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For You 💗</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Georgia", serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(#fbeaea, #f7d9e3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Envelope */
+    .envelope-container {
+      position: relative;
+      width: 320px;
+      height: 220px;
+      cursor: pointer;
+    }
+
+    .envelope {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #d8a7a7;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #c88f8f;
+      clip-path: polygon(0 0, 50% 55%, 100% 0);
+      transform-origin: top;
+      transition: transform 1s ease;
+      z-index: 3;
+    }
+
+    .open .flap {
+      transform: rotateX(180deg);
+    }
+
+    .tap-text {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      bottom: 15px;
+      color: #5a2d2d;
+      font-size: 14px;
+      z-index: 4;
+    }
+
+    /* Letter */
+    .letter {
+      position: fixed;
+      inset: 0;
+      background: #fff8f8;
+      padding: 40px 20px;
+      overflow-y: auto;
+      display: none;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .letter h2 {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .letter p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+      color: #333;
+    }
+
+    .codeword {
+      text-align: center;
+      font-size: 30px;
+      margin: 40px 0 20px;
+      font-weight: bold;
+    }
+
+    .photo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .photo img {
+      width: 220px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .sign {
+      text-align: right;
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Envelope -->
+  <div class="envelope-container" onclick="openLetter()">
+    <div class="envelope">
+      <div class="flap"></div>
+    </div>
+    <div class="tap-text">Tap to open 💌</div>
+  </div>
+
+  <!-- Letter -->
+  <div class="letter" id="letter">
+    <h2>Hi DOBA,</h2>
+
+    <p>
+      Maine kabhi pehle love letter likha nahi hai, aur honestly likhne ke baare
+      mein kabhi socha bhi nahi tha. Toh mujhe sach mein nahi pata ki kya likhna
+      hota hai, ya kitna likhna hota hai. So please bear with me. Aur haan, I know
+      yeh ek virtual letter hai — kyunki paper pe likhne ka thoda darr tha (aur tu
+      apne ghar pe kaise rakhega?). But I’ll still try my best to keep it real,
+      bina emojis ke, taaki yeh sach mein ek letter jaisa lage. I hope you enjoy
+      reading what comes next.
+    </p>
+
+    <p>
+      Sach bolu toh, apne feelings ko words mein daalna mere liye kaafi mushkil
+      hai. Kyunki jo main tere liye feel karti hoon, woh words se kaafi zyada hai.
+      Aur main yeh bhi maanta hoon ki maine aaj tak kisi ke liye aisi affection
+      kabhi feel nahi ki. Tujhe pata hai tu meri life mein kaise aaya? Ek example
+      deti hoon — jaise hum plants ko roz paani dete hain, sunlight dete hain, care
+      karte hain, phir bhi kabhi-kabhi unmein flowers nahi aate. Aur phir achanak,
+      bina planning ke, ek din woh bloom kar jaate hain. Main hamesha planning mein
+      believe karti thi. But jab se tu meri life mein aaya hai, mera perspective
+      poora change ho gaya hai. Unexpected life turns aur universe ke plans hi
+      actually sabse best hote hain. Jab main peeche mudkar dekhti hoon, toh meri
+      life ek Dharma movie jaisi lagti hai — aur mujhe apni life ka hero bohot
+      pasand hai.
+    </p>
+
+    <p>
+      Sach kehte hain ki kisi cheez ki aadat lagna buri hoti hai. Par mujhe tera
+      nasha ho gaya hai — teri aadat lag chuki hai. But still, I love you to the
+      moon and back. Kabhi-kabhi mujhe hamare future ko lekar bohot darr lagta hai.
+      But phir main khud ko yaad dilati hoon ki bhagwanji hain na. Sab theek hoga.
+      Everything will work out. I’m yours — completely.
+    </p>
+
+    <div class="codeword">Same to you ♡</div>
+
+    <div class="photo">
+      <!-- Replace image.jpg with your photo file -->
+      <img src="image.jpg" alt="Us">
+    </div>
+
+    <div class="sign">
+      From your Vhaludi
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.querySelector(".envelope-container").classList.add("open");
+      setTimeout(() => {
+        document.querySelector(".envelope-container").style.display = "none";
+        document.getElementById("letter").style.display = "block";
+      }, 900);
+    }
+  </script>
+
+</body>
+</html>
